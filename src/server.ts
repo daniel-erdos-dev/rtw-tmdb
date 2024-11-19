@@ -7,7 +7,10 @@ const port: number = Number(process.env.PORT) || 3003;
 // GET movie based on title
 app.get("/movie", (req: Request, res: Response) => {
   const title = req.query.title as string;
-  getMovieDetailsFromApi(title)
+  const yearAsString = req.query.year as string;
+  const year = yearAsString ? parseInt(yearAsString) : undefined;
+
+  getMovieDetailsFromApi(title, year)
     .then((result) => {
       res.send(result);
     })
