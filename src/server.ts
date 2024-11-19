@@ -35,4 +35,8 @@ app.get("/providers", (req: Request, res: Response) => {
     });
 });
 
+app.get("/ping", (req: Request, res: Response) => {
+  res.send("OK");
+});
+
 app.listen(port);
